@@ -1,0 +1,33 @@
+<head>
+    <title>Loan App</title>
+  </head>
+  
+  <body>
+    {{> navbar}}
+    {{> main}}
+  </body>
+  
+  <template name="navbar">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{#if currentUser}}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="#" id="logout">Logout</a></li>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </template>
+  
+  <template name="main">
+    <h1>Welcome to Loan App</h1>
+    {{#if currentUser}}
+      <p>Logged in as: {{currentUser.emails.[0].address}}</p>
+    {{else}}
+      <p>Please log in or register to continue.</p>
+    {{/if}}
+  </template>
+  

@@ -1,0 +1,17 @@
+<template name="adminDashboard">
+    <h2>Admin Dashboard</h2>
+    <h3>All Transactions</h3>
+    <ul>
+      {{#each allTransactions}}
+        <li>
+          {{#if isLoanRequest}}
+            <span>Loan Request: {{amount}}</span>
+          {{else}}
+            <span>Loan Payment: {{amount}}</span>
+          {{/if}}
+          <span>User: {{user.email}}</span>
+        </li>
+      {{/each}}
+    </ul>
+  </template>
+  

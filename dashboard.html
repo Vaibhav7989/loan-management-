@@ -1,0 +1,34 @@
+<template name="dashboard">
+    <h2>Dashboard</h2>
+    <p>Welcome, {{currentUser.email}}</p>
+    
+    <!-- Loan Requests -->
+    {{#if currentUserIsBorrower}}
+      <h3>Loan Requests</h3>
+      <form id="loanRequestForm">
+        <input type="number" name="amount" placeholder="Loan Amount">
+        <button type="submit">Request Loan</button>
+      </form>
+      <ul>
+        {{#each loanRequests}}
+          <li>Amount: {{amount}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+    
+    <!-- Loan Payments -->
+    {{#if currentUserIsLender}}
+      <h3>Loan Payments</h3>
+      <form id="loanPaymentForm">
+        <input type="text" name="loanId" placeholder="Loan ID">
+        <input type="number" name="amount" placeholder="Amount">
+        <button type="submit">Confirm Payment</button>
+      </form>
+      <ul>
+        {{#each loanPayments}}
+          <li>Amount: {{amount}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </template>
+  
